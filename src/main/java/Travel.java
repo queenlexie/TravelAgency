@@ -1,4 +1,7 @@
+
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Travel implements Cloneable, Comparable<Travel>, Savable {
@@ -89,6 +92,34 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
         return myList;
     }
 
+    @SuppressWarnings("unchecked")
+    public static Travel clone(Travel t) throws IOException, ClassNotFoundException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream out = new ObjectOutputStream(bos);
+        out.writeObject(t);
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+        ObjectInputStream in = new ObjectInputStream(bis);
+        return (Travel) in.readObject();
+    }
+    public void sort(){
+        touristList.sort(Tourist::compareTo);
+    }
+    public void sortByPESEL(){
+        touristList.sort(new PESELComparator());
+    }
+    public boolean isTouristInThisTravel(Tourist t){
+        for(Tourist tourist : touristList)
+            if(tourist.equals(t))
+                return true;
+            return false;
+    }
+    public boolean equals(Travel other){
+        if(other==null)
+            return false;
+        return this.getName().equals(other.getName()) && this.getTravelGuide().equals(other.travelGuide) && this.getNumberOfParticipants()==other.getNumberOfParticipants();
+    }
+
     @Override
     public String toString() {
         StringBuilder myStringBuilder = new StringBuilder("Travel: " + name);
@@ -103,13 +134,43 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
         return 0;
     }
 
+    //binary serialization
     @Override
     public void savaAsBIN(String name) {
-
+        try {
+            FileOutputStream fileOut = new FileOutputStream("travelDetails.bin");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(this);
+            out.close();
+            fileOut.close();
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
     }
 
     @Override
-    public Object readBIN(String name) {
-        return null;
+    @SuppressWarnings("unused")
+    public Object readBIN(String name) throws IOException {
+        FileInputStream fileIn = new FileInputStream("travelDetails.bin");
+        ObjectInputStream in = new ObjectInputStream(fileIn);
+        Travel allDeps = null;
+        try {
+            allDeps = (Travel) in.readObject();
+        }
+        catch (IOException | ClassNotFoundException exc) {
+            System.out.println("didnt work");
+        }
+        return allDeps;
+    }
+
+
+    class PESELComparator implements Comparator<Tourist> {
+        @Override
+        public int compare(Tourist tourist, Tourist tourist1) {
+            if(tourist!=null && tourist1!=null)
+                return tourist.getPESEL().compareTo(tourist1.getPESEL());
+            else
+                return 0;
+        }
     }
 }

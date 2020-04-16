@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bb3dcfb-da1b-41c9-94d5-ae068fbd25f4" name="Default Changelist" comment="" />
+    <list default="true" id="5bb3dcfb-da1b-41c9-94d5-ae068fbd25f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Savable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Savable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Travel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Travel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TravelGuide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TravelGuide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tourist$Sex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Tourist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Tourist.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +24,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,6 +35,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1aD8jLM279KTdd1PkW0bn4GiCIR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -60,6 +73,9 @@
       <updated>1586258937405</updated>
       <workItem from="1586258940245" duration="9757000" />
       <workItem from="1586699229786" duration="48000" />
+      <workItem from="1586860653912" duration="1257000" />
+      <workItem from="1586936042077" duration="1163000" />
+      <workItem from="1587025597588" duration="3665000" />
     </task>
     <servers />
   </component>
@@ -67,9 +83,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="605" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1586281460715">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="2326" y="137" key="#com.intellij.ide.util.MemberChooser" timestamp="1587027119259">
+      <screen x="1600" y="0" width="1920" height="1040" />
     </state>
+    <state x="2326" y="137" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587027119259" />
     <state x="605" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1586281460715" />
     <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1586259023715">
       <screen x="0" y="0" width="1600" height="860" />
@@ -99,10 +116,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1586259210385" />
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1586699269001">
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1586936043814">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586699269001" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586936043814" />
     <state x="182" y="125" key="new project wizard" timestamp="1586699277277">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
