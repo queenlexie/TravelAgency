@@ -88,7 +88,7 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
     public List<Tourist> findTouristsForCountry(String country){
         List<Tourist> myList = new ArrayList<Tourist>();
         for(Tourist t : touristList)
-            if (t.getCountry() == country) myList.add(t);
+            if (t.getCountry().equals(country)) myList.add(t);
         return myList;
     }
 
@@ -122,10 +122,10 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
 
     @Override
     public String toString() {
-        StringBuilder myStringBuilder = new StringBuilder("Travel: " + name);
-        myStringBuilder.append("Your guide is: " + travelGuide);
+        StringBuilder myStringBuilder = new StringBuilder("Travel: " + name + ". ");
+        myStringBuilder.append("Your guide is: " + travelGuide + ". List of tourists: ");
         for (Tourist c : touristList)
-            myStringBuilder.append(c);
+            myStringBuilder.append(c + " ");
         return myStringBuilder.toString();
     }
 

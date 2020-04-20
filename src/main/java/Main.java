@@ -2,6 +2,7 @@
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -20,15 +21,23 @@ public class Main {
         Tourist t4= new Tourist(p4);
         Tourist t5= new Tourist("Jan", "But", LocalDate.of(1980, Month.APRIL, 10), "80041012345", Person.Sex.M, "Japan", "Plaza", Tourist.Catering.BB);
         Tourist t6= new Tourist("Elzieta", "But", LocalDate.of(1982, Month.DECEMBER, 21), "82122134567", Person.Sex.F, "Japan", "Plaza", Tourist.Catering.HB );
-        System.out.println(t1);
-        System.out.println(t2);
-        System.out.println(t3);
-        System.out.println(t4);
-        System.out.println(t5);
-        System.out.println(t6);
+//        System.out.println(t1);
+//        System.out.println(t2);
+//        System.out.println(t3);
+//        System.out.println(t4);
+//        System.out.println(t5);
+//        System.out.println(t6);
 
         List<Tourist> touristList = new ArrayList<>();
+        touristList.add(t1);
+        touristList.add(t2);
+        touristList.add(t3);
+        touristList.add(t4);
+        touristList.add(t5);
+        touristList.add(t6);
+
         TravelGuide guide = new TravelGuide();
         Travel t = new Travel(10, "Rainbow", guide ,touristList );
+        System.out.println(t);
     }
 }

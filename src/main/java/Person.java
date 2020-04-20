@@ -1,10 +1,12 @@
 
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.math.RandomUtils;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.util.Random;
 
 public class Person implements Serializable {
     public enum Sex { F, M };
@@ -19,8 +21,8 @@ public class Person implements Serializable {
         setName("");
         setSurname("");
         setSex(Sex.M);
-        setDateOfBirth(LocalDate.now());
-        setPESEL(RandomStringUtils.randomAlphanumeric(11).toUpperCase());
+        setPESEL(RandomStringUtils.randomNumeric(2) +  String.format("%02d",RandomUtils.nextInt(12)+1) +  String.format("%02d",RandomUtils.nextInt(28)+1) + RandomStringUtils.randomNumeric(5) );
+        setDateOfBirth(LocalDate.parse(getPESEL().substring(0, 6), DateTimeFormatter.ofPattern("yyMMdd")));
     }
     protected Person(String name, String surname) {
         super();
