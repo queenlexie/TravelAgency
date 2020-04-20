@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bb3dcfb-da1b-41c9-94d5-ae068fbd25f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/Testing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Tourist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Tourist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TravelGuide.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TravelGuide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WrongPESELException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WrongPESELException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -28,7 +35,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1aD8jLM279KTdd1PkW0bn4GiCIR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -38,9 +47,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="TravelAgency2" />
@@ -48,9 +58,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Testing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TravelAgency2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Testing" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing.dateOfBirthAndPESELShouldBeEqual" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TravelAgency2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Testing" />
+      <option name="METHOD_NAME" value="dateOfBirthAndPESELShouldBeEqual" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing.shouldNotReturnPESELException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TravelAgency2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Testing" />
+      <option name="METHOD_NAME" value="shouldNotReturnPESELException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing.shouldReturnExceptionForNotDigitsOnlyPESEL" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TravelAgency2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Testing" />
+      <option name="METHOD_NAME" value="shouldReturnExceptionForNotDigitsOnlyPESEL" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.Testing" />
+        <item itemvalue="JUnit.Testing.shouldNotReturnPESELException" />
+        <item itemvalue="JUnit.Testing.dateOfBirthAndPESELShouldBeEqual" />
+        <item itemvalue="JUnit.Testing.shouldReturnExceptionForNotDigitsOnlyPESEL" />
       </list>
     </recent_temporary>
   </component>
@@ -70,6 +123,7 @@
       <workItem from="1586936042077" duration="1163000" />
       <workItem from="1587025597588" duration="3755000" />
       <workItem from="1587034204097" duration="2033000" />
+      <workItem from="1587373009254" duration="8309000" />
     </task>
     <servers />
   </component>
@@ -77,6 +131,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="530" y="184" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1587373464552">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="184" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1587373464552" />
     <state x="2326" y="137" key="#com.intellij.ide.util.MemberChooser" timestamp="1587027119259">
       <screen x="1600" y="0" width="1920" height="1040" />
     </state>
@@ -86,26 +144,42 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1586259023715" />
-    <state width="1876" height="57" key="GridCell.Tab.0.bottom" timestamp="1587029369344">
-      <screen x="1600" y="0" width="1920" height="1040" />
+    <state width="1556" height="159" key="GridCell.Tab.0.bottom" timestamp="1587388431428">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1876" height="57" key="GridCell.Tab.0.bottom/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587029369344" />
-    <state width="1557" height="2" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1586282844243" />
-    <state width="1876" height="57" key="GridCell.Tab.0.center" timestamp="1587029369343">
-      <screen x="1600" y="0" width="1920" height="1040" />
+    <state width="1556" height="159" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1587388431428" />
+    <state width="1556" height="159" key="GridCell.Tab.0.center" timestamp="1587388431427">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1876" height="57" key="GridCell.Tab.0.center/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587029369343" />
-    <state width="1557" height="2" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1586282844243" />
-    <state width="1876" height="57" key="GridCell.Tab.0.left" timestamp="1587029369343">
-      <screen x="1600" y="0" width="1920" height="1040" />
+    <state width="1556" height="159" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1587388431427" />
+    <state width="1556" height="159" key="GridCell.Tab.0.left" timestamp="1587388431427">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1876" height="57" key="GridCell.Tab.0.left/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587029369343" />
-    <state width="1557" height="2" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1586282844243" />
-    <state width="1876" height="57" key="GridCell.Tab.0.right" timestamp="1587029369343">
-      <screen x="1600" y="0" width="1920" height="1040" />
+    <state width="1556" height="159" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1587388431427" />
+    <state width="1556" height="159" key="GridCell.Tab.0.right" timestamp="1587388431428">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state width="1876" height="57" key="GridCell.Tab.0.right/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587029369343" />
-    <state width="1557" height="2" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1586282844243" />
+    <state width="1556" height="159" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1587388431428" />
+    <state width="1556" height="274" key="GridCell.Tab.1.bottom" timestamp="1587382066002">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="274" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1587382066002" />
+    <state width="1556" height="274" key="GridCell.Tab.1.center" timestamp="1587382066001">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="274" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1587382066001" />
+    <state width="1556" height="274" key="GridCell.Tab.1.left" timestamp="1587382066001">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="274" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1587382066001" />
+    <state width="1556" height="274" key="GridCell.Tab.1.right" timestamp="1587382066001">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1556" height="274" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1587382066001" />
     <state x="330" y="84" key="Maven.ArtifactSearchDialog" timestamp="1586278883617">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -114,11 +188,15 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="301" y="72" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1586259210385" />
-    <state x="2195" y="306" key="com.intellij.ide.util.TipDialog" timestamp="1587034209227">
-      <screen x="1600" y="0" width="1920" height="1040" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1587388532409">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1587388532409" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog" timestamp="1587373096689">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="2195" y="306" key="com.intellij.ide.util.TipDialog/0.0.1600.860/1600.0.1920.1040@1600.0.1920.1040" timestamp="1587034209227" />
-    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586936043814" />
+    <state x="496" y="253" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1587373096689" />
     <state x="182" y="125" key="new project wizard" timestamp="1586699277277">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

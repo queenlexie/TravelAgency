@@ -12,7 +12,7 @@ public class TravelGuide extends Person implements Cloneable, Serializable {
         this.expierience = expierience;
     }
 
-    public TravelGuide() throws WrongPESELException {
+    public TravelGuide() {
         super();
     }
 
@@ -20,11 +20,11 @@ public class TravelGuide extends Person implements Cloneable, Serializable {
         super(name, surname);
     }
 
-    public TravelGuide(String name, String surname, LocalDate dateOfBirth, String PESEL, Sex sex) throws WrongPESELException {
+    public TravelGuide(String name, String surname, LocalDate dateOfBirth, String PESEL, Sex sex) {
         super(name, surname, dateOfBirth, PESEL, sex);
     }
 
-    public TravelGuide(String name, String surname, LocalDate dateOfBirth, String PESEL, Sex sex, int expierience) throws WrongPESELException {
+    public TravelGuide(String name, String surname, LocalDate dateOfBirth, String PESEL, Sex sex, int expierience) {
         super(name, surname, dateOfBirth, PESEL, sex);
         this.expierience = expierience;
     }

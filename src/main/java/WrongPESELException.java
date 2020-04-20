@@ -3,10 +3,10 @@ public class WrongPESELException extends Exception {
     }
 
     public WrongPESELException(String message) {
-        super();
+        super(message);
     }
 
     public WrongPESELException(String message, Exception inner) {
-        super();
+        super(message);
     }
 }
