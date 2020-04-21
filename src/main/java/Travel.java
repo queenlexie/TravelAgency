@@ -1,10 +1,12 @@
 
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Travel implements Cloneable, Comparable<Travel>, Savable {
+public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializable {
 
     private int numberOfParticipants;
     private String name;
@@ -17,9 +19,8 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
         touristList= new ArrayList<>();
     }
 
-    public Travel(int numberOfParticipants, String name, TravelGuide travelGuide, List<Tourist> touristList) {
+    public Travel(String name, TravelGuide travelGuide, List<Tourist> touristList) {
         super();
-        this.numberOfParticipants = numberOfParticipants;
         this.name = name;
         this.travelGuide = travelGuide;
         this.touristList = touristList;
@@ -122,10 +123,10 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
 
     @Override
     public String toString() {
-        StringBuilder myStringBuilder = new StringBuilder("Travel: " + name + ". ");
-        myStringBuilder.append("Your guide is: " + travelGuide + ". List of tourists: ");
+        StringBuilder myStringBuilder = new StringBuilder("Travel: " + name + ". \n");
+        myStringBuilder.append("Your guide is: " + travelGuide + ".\nList of tourists:\n");
         for (Tourist c : touristList)
-            myStringBuilder.append(c + " ");
+            myStringBuilder.append(c + "\n");
         return myStringBuilder.toString();
     }
 
@@ -138,7 +139,7 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
     @Override
     public void savaAsBIN(String name) {
         try {
-            FileOutputStream fileOut = new FileOutputStream("travelDetails.bin");
+            FileOutputStream fileOut = new FileOutputStream(name);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
@@ -151,17 +152,42 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable {
     @Override
     @SuppressWarnings("unused")
     public Object readBIN(String name) throws IOException {
-        FileInputStream fileIn = new FileInputStream("travelDetails.bin");
+        FileInputStream fileIn = new FileInputStream(name);
         ObjectInputStream in = new ObjectInputStream(fileIn);
         Travel allDeps = null;
         try {
             allDeps = (Travel) in.readObject();
         }
         catch (IOException | ClassNotFoundException exc) {
-            System.out.println("didnt work");
+            System.out.println("ERROR: While Creating or Opening the File.bin");
         }
         return allDeps;
     }
+
+    //XML serialization
+    @Override
+    public void saveAsXML(String name){
+        XMLEncoder encoder=null;
+        try{
+            encoder=new XMLEncoder(new BufferedOutputStream(new FileOutputStream(name)));
+        }catch(FileNotFoundException fileNotFound){
+            System.out.println("ERROR: While Creating or Opening the File.xml");
+        }
+        encoder.writeObject(this);
+        encoder.close();
+    }
+    public static Travel deserializeFromXML (String name){
+            XMLDecoder decoder=null;
+            try {
+                decoder=new XMLDecoder(new BufferedInputStream(new FileInputStream(name)));
+            } catch (FileNotFoundException e) {
+                System.out.println("ERROR: File dvd.xml not found");
+            }
+            return (Travel) decoder.readObject();
+        }
+        //json serialization
+
+
 
 
     class PESELComparator implements Comparator<Tourist> {

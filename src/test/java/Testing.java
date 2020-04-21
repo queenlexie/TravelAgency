@@ -14,19 +14,19 @@ public class Testing {
     }
     @Test
     public void shouldNotReturnPESELException() throws WrongPESELException {
-        Person.validatePESEL("96051412345", LocalDate.of(1996, Month.MAY, 14));
+        Person.validatePESEL("96051412345", LocalDate.of(1996, Month.MAY, 14), Person.Sex.F);
     }
     @Test(expected = WrongPESELException.class)
     public void shouldReturnExceptionForPESEL() throws WrongPESELException {
-        Person.validatePESEL("96051412345", LocalDate.of(1994, Month.MAY, 14));
+        Person.validatePESEL("96051412345", LocalDate.of(1994, Month.MAY, 14), Person.Sex.F);
     }
     @Test(expected = WrongPESELException.class)
     public void shouldReturnExceptionForNotLongEnoughPESEL() throws WrongPESELException {
-        Person.validatePESEL("12345", LocalDate.of(1994, Month.MAY, 14));
+        Person.validatePESEL("12345", LocalDate.of(1994, Month.MAY, 14), Person.Sex.F);
     }
     @Test(expected = WrongPESELException.class)
     public void shouldReturnExceptionForNotDigitsOnlyPESEL() throws WrongPESELException {
-        Person.validatePESEL("12345aaaaaa", LocalDate.of(1994, Month.MAY, 14));
+        Person.validatePESEL("12345aaaaaa", LocalDate.of(1994, Month.MAY, 14), Person.Sex.F);
     }
     @Test
     public void dateOfBirthAndPESELShouldBeEqual(){

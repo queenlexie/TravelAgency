@@ -35,10 +35,12 @@ public class Person implements Serializable {
         this.PESEL = PESEL;
         this.sex = sex;
     }
-    protected static void validatePESEL(String PESEL, LocalDate dateOfBirth) throws WrongPESELException {
+    protected static void validatePESEL(String PESEL, LocalDate dateOfBirth, Sex sex) throws WrongPESELException {
         if (PESEL.length() != 11) throw new WrongPESELException("Wrong length of PESEL ");
         if (!PESEL.substring(0, 6).equals(dateOfBirth.format(DateTimeFormatter.ofPattern("yyMMdd")))) throw new WrongPESELException("PESEL differs from date of birth!");
         if (!isDigitsOnly(PESEL)) throw new WrongPESELException("PESEL should have only digits");
+        if((int) PESEL.charAt(9)%2==0 && sex.equals(Sex.M)) throw new WrongPESELException("PESEL is dedicated for man, but sex is female!");
+        if((int) PESEL.charAt(9)%2!=0 && sex.equals(Sex.F)) throw new WrongPESELException("PESEL is dedicated for woman, but sex is male!");
     }
     public static Person makePerson(){
         return new Person();
@@ -47,7 +49,7 @@ public class Person implements Serializable {
         return new Person(name, surname);
     }
     public static Person makePerson(String name, String surname, LocalDate dateOfBirth, String PESEL, Sex sex) throws WrongPESELException {
-        validatePESEL(PESEL, dateOfBirth);
+        validatePESEL(PESEL, dateOfBirth, sex);
         return new Person(name, surname, dateOfBirth, PESEL, sex);
     }
     //</editor-fold>
