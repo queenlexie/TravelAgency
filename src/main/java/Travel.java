@@ -1,4 +1,14 @@
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonWriter;
+import javax.json.stream.JsonParser;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -65,10 +75,10 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializa
         numberOfParticipants++;
     }
     public boolean isPersonAtTravel(String PESEL){
-        return touristList.stream().filter(o -> o.getPESEL().equals(PESEL)).findFirst().isPresent();
+        return touristList.stream().anyMatch(o -> o.getPESEL().equals(PESEL));
     }
     public boolean isPersonAtTravel(String name, String surname) {
-        return touristList.stream().filter(o -> (o.getName().equals(name) && o.getSurname().equals(surname))).findFirst().isPresent();
+        return touristList.stream().anyMatch(o -> (o.getName().equals(name) && o.getSurname().equals(surname)));
     }
     public void deleteTourist(Tourist t){
         if(!isPersonAtTravel(t.getPESEL()))
@@ -88,20 +98,20 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializa
     }
     public List<Tourist> findTouristsForCountry(String country){
         List<Tourist> myList = new ArrayList<Tourist>();
-        for(Tourist t : touristList)
+        for(Tourist t : getTouristList())
             if (t.getCountry().equals(country)) myList.add(t);
         return myList;
     }
 
     @SuppressWarnings("unchecked")
-    public static Travel clone(Travel t) throws IOException, ClassNotFoundException {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream out = new ObjectOutputStream(bos);
-        out.writeObject(t);
-
-        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
-        ObjectInputStream in = new ObjectInputStream(bis);
-        return (Travel) in.readObject();
+    public Travel clone() throws CloneNotSupportedException {
+//        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//        ObjectOutputStream out = new ObjectOutputStream(bos);
+//        out.writeObject(t);
+//        ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
+//        ObjectInputStream in = new ObjectInputStream(bis);
+//        return (Travel) in.readObject();
+        return (Travel) super.clone();
     }
     public void sort(){
         touristList.sort(Tourist::compareTo);
@@ -132,12 +142,17 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializa
 
     @Override
     public int compareTo(Travel travel) {
-        return 0;
+       int result= CharSequence.compare(name, travel.getName());
+       if(result==0)
+           result=Integer.compare(numberOfParticipants, travel.getNumberOfParticipants());
+       return  result;
     }
+
+    //<editor-fold desc="serialization">
 
     //binary serialization
     @Override
-    public void savaAsBIN(String name) {
+    public void saveAsBIN(String name) {
         try {
             FileOutputStream fileOut = new FileOutputStream(name);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -145,23 +160,21 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializa
             out.close();
             fileOut.close();
         } catch (IOException i) {
-            i.printStackTrace();
+            System.out.println("ERROR: While Creating the File.bin");
         }
     }
 
-    @Override
-    @SuppressWarnings("unused")
-    public Object readBIN(String name) throws IOException {
+    public static Object readBIN(String name) throws IOException {
         FileInputStream fileIn = new FileInputStream(name);
         ObjectInputStream in = new ObjectInputStream(fileIn);
-        Travel allDeps = null;
+        Travel output = null;
         try {
-            allDeps = (Travel) in.readObject();
+            output = (Travel) in.readObject();
         }
         catch (IOException | ClassNotFoundException exc) {
-            System.out.println("ERROR: While Creating or Opening the File.bin");
+            System.out.println("ERROR: While Opening the File.bin");
         }
-        return allDeps;
+        return output;
     }
 
     //XML serialization
@@ -176,17 +189,89 @@ public class Travel implements Cloneable, Comparable<Travel>, Savable, Serializa
         encoder.writeObject(this);
         encoder.close();
     }
-    public static Travel deserializeFromXML (String name){
+    public static Travel readFromXML (String name){
             XMLDecoder decoder=null;
             try {
                 decoder=new XMLDecoder(new BufferedInputStream(new FileInputStream(name)));
             } catch (FileNotFoundException e) {
-                System.out.println("ERROR: File dvd.xml not found");
+                System.out.println("ERROR: File.xml not found");
             }
             return (Travel) decoder.readObject();
         }
-        //json serialization
 
+        //simple json serialization
+    public void writeAsSimpleJSON(String name) throws FileNotFoundException {
+        //TODO
+//        JSONObject obj = new JSONObject();
+//        obj.writeJSONString(this);
+        JsonWriter jsonWriter = Json.createWriter(new FileOutputStream(name));
+        jsonWriter.writeObject((JsonObject) this);
+        jsonWriter.close();
+        InputStream fis = new FileInputStream(name);
+
+        JsonParser jsonParser = Json.createParser(fis);
+    }
+
+    public static Travel readFromSimpleJSON(String name) throws IOException {
+        //TODO
+        InputStream fis = new FileInputStream(name);
+        JsonReader jsonReader = Json.createReader(fis);
+        JsonObject jsonObject = jsonReader.readObject();
+        jsonReader.close();
+        fis.close();
+        return (Travel) jsonObject;
+
+//        JSONObject output=null;
+//        JSONParser parser = new JSONParser();
+//        try (Reader reader = new FileReader(name)) {
+//            output = (JSONObject) parser.parse(reader);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+        //return (Travel) output;
+    }
+
+        @Override
+        //json serialization using Jackson
+    public void writeAsJSON(String name){
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(new File(name), this);}
+         catch(JsonGenerationException e){
+             System.out.println("ERROR: While Generating the File.json");
+        }
+        catch(JsonMappingException e){
+            System.out.println("ERROR: While Mapping the File.json");
+        }
+        catch( IOException e){
+            System.out.println("ERROR: While Creating the File.json");
+        }
+    }
+
+    public static Travel readFromJSON(String name) throws IOException {
+        //TODO: make it working !
+        Travel output= null;
+        try{
+            ObjectMapper mapper = new ObjectMapper();
+            output= mapper.readValue(name, Travel.class);
+        }
+        catch(JsonParseException e){
+            System.out.println("ERROR: While Parsing the File.json");
+        }
+        catch(JsonMappingException e){
+            System.out.println("ERROR: While Mapping the File.json");
+        }
+        catch(IOException e){
+            System.out.println("ERROR: While Opening the File.json");
+        }
+       return output;
+
+    }
+    //</editor-fold>
 
 
 

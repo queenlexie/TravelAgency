@@ -25,100 +25,6 @@
   </void>
  </object>
 <void class="Tourist" id="Tourist0">
- <void property="name">
-  <string>Pimpon</string>
- </void>
- <void property="surname">
-  <string>Kot</string>
- </void>
- <void property="PESEL">
-  <string>17051412375</string>
- </void>
-</void>
-<void class="Tourist" id="Tourist1">
- <void property="catering">
-  <object class="java.lang.Enum" method="valueOf">
-   <class>Tourist$Catering</class>
-   <string>BB</string>
-  </object>
- </void>
- <void property="country">
-  <string>Japan</string>
- </void>
- <void property="hotel">
-  <string>Plaza</string>
- </void>
- <void property="name">
-  <string>Jan</string>
- </void>
- <void property="surname">
-  <string>But</string>
- </void>
- <void property="PESEL">
-  <string>80041012335</string>
- </void>
-</void>
-<void class="Tourist" id="Tourist2">
- <void property="name">
-  <string>Joanna</string>
- </void>
- <void property="sex">
-  <object class="java.lang.Enum" id="Person$Sex0" method="valueOf">
-   <class>Person$Sex</class>
-   <string>F</string>
-  </object>
- </void>
- <void property="surname">
-  <string>Kowalska</string>
- </void>
- <void property="PESEL">
-  <string>96051212345</string>
- </void>
-</void>
-<void class="Tourist" id="Tourist3">
- <void property="dateOfBirth">
-  <null/>
- </void>
- <void property="name">
-  <string>Jan</string>
- </void>
- <void property="sex">
-  <null/>
- </void>
- <void property="surname">
-  <string>Nowak</string>
- </void>
- <void property="PESEL">
-  <null/>
- </void>
-</void>
-<void class="Tourist" id="Tourist4">
- <void property="catering">
-  <object class="java.lang.Enum" method="valueOf">
-   <class>Tourist$Catering</class>
-   <string>HB</string>
-  </object>
- </void>
- <void property="country">
-  <string>Japan</string>
- </void>
- <void property="hotel">
-  <string>Plaza</string>
- </void>
- <void property="name">
-  <string>Elzieta</string>
- </void>
- <void property="sex">
-  <object idref="Person$Sex0"/>
- </void>
- <void property="surname">
-  <string>But</string>
- </void>
- <void property="PESEL">
-  <string>82122134567</string>
- </void>
-</void>
-<void class="Tourist" id="Tourist5">
  <void property="dateOfBirth">
   <null/>
  </void>
@@ -140,22 +46,111 @@
  <void id="ArrayList0" method="get">
   <object idref="Travel0"/>
   <void method="add">
-   <object idref="Tourist3"/>
+   <object class="Tourist">
+    <void property="PESEL">
+     <null/>
+    </void>
+    <void property="dateOfBirth">
+     <null/>
+    </void>
+    <void property="name">
+     <string>Jan</string>
+    </void>
+    <void property="sex">
+     <null/>
+    </void>
+    <void property="surname">
+     <string>Nowak</string>
+    </void>
+   </object>
   </void>
   <void method="add">
-   <object idref="Tourist2"/>
+   <object class="Tourist">
+    <void property="PESEL">
+     <string>96051212345</string>
+    </void>
+    <void property="name">
+     <string>Joanna</string>
+    </void>
+    <void property="sex">
+     <object class="java.lang.Enum" id="Person$Sex0" method="valueOf">
+      <class>Person$Sex</class>
+      <string>F</string>
+     </object>
+    </void>
+    <void property="surname">
+     <string>Kowalska</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Tourist">
+    <void property="PESEL">
+     <string>17051412375</string>
+    </void>
+    <void property="name">
+     <string>Pimpon</string>
+    </void>
+    <void property="surname">
+     <string>Kot</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Tourist">
+    <void property="PESEL">
+     <string>80041012335</string>
+    </void>
+    <void property="catering">
+     <object class="java.lang.Enum" method="valueOf">
+      <class>Tourist$Catering</class>
+      <string>BB</string>
+     </object>
+    </void>
+    <void property="country">
+     <string>Japan</string>
+    </void>
+    <void property="hotel">
+     <string>Plaza</string>
+    </void>
+    <void property="name">
+     <string>Jan</string>
+    </void>
+    <void property="surname">
+     <string>But</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Tourist">
+    <void property="PESEL">
+     <string>82122134567</string>
+    </void>
+    <void property="catering">
+     <object class="java.lang.Enum" method="valueOf">
+      <class>Tourist$Catering</class>
+      <string>HB</string>
+     </object>
+    </void>
+    <void property="country">
+     <string>Japan</string>
+    </void>
+    <void property="hotel">
+     <string>Plaza</string>
+    </void>
+    <void property="name">
+     <string>Elzieta</string>
+    </void>
+    <void property="sex">
+     <object idref="Person$Sex0"/>
+    </void>
+    <void property="surname">
+     <string>But</string>
+    </void>
+   </object>
   </void>
   <void method="add">
    <object idref="Tourist0"/>
-  </void>
-  <void method="add">
-   <object idref="Tourist1"/>
-  </void>
-  <void method="add">
-   <object idref="Tourist4"/>
-  </void>
-  <void method="add">
-   <object idref="Tourist5"/>
   </void>
  </void>
 </void>

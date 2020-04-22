@@ -7,11 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static void main (String args[]) throws WrongPESELException, IOException {
+    public static void main (String args[]) throws WrongPESELException, IOException, ClassNotFoundException, CloneNotSupportedException {
         Person p1 = Person.makePerson("Anna", "Nowak");
         Person p2 = Person.makePerson("Jan", "Nowak");
         Person p3 = Person.makePerson("Joanna", "Kowalska", LocalDate.of(1996, Month.MAY, 12), "96051212345", Person.Sex.F );
         Person p4 = Person.makePerson("Pimpon", "Kot", LocalDate.of(2017, Month.MAY, 14), "17051412375", Person.Sex.M);
+        //System.out.println(p3.Age());
+       // System.out.println(p3.equals(Person.makePerson("Joanna", "Kowalska", LocalDate.of(1996, Month.MAY, 12), "96051212345", Person.Sex.F )));
 //        System.out.println(p1);
 //        System.out.println(p2);
 //        System.out.println(p3);
@@ -39,11 +41,28 @@ public class Main {
         t.addTourist(t5);
         t.addTourist(t6);
         //System.out.println(t);
+        //System.out.println(t.equals(t.clone()));
 
-        t.savaAsBIN("travel.bin");
-        //System.out.println(t.readBIN("travel.bin"));
+        t.saveAsBIN("travel.bin");
+        //System.out.println(Travel.readBIN("travel.bin"));
         t.saveAsXML("travel.xml");
-        System.out.println(Travel.deserializeFromXML("travel.xml"));
+        //System.out.println(Travel.readFromXML("travel.xml"));
+        t.writeAsJSON("travel.json");
+        //System.out.println(Travel.readFromJSON("travel.json"));
 
+        //TODO:
+
+        System.out.println(t.isPersonAtTravel("73020234517"));
+        //System.out.println(t.isPersonAtTravel("73020234513"));
+        //System.out.println(t.getTouristList());
+        //System.out.println(t.findTouristsForCountry("Japan"));
+        //t.deleteTourist(t6);
+        //t.endTravel();
+        //System.out.println(t);
+        //t.sortByPESEL();
+        //t.sort();
+
+        //t.writeAsSimpleJSON("travelSimple.json");
+        //System.out.println(Travel.readFromSimpleJSON("travelSimple.json"));
     }
 }

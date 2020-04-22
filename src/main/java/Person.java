@@ -1,4 +1,5 @@
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 
@@ -12,6 +13,8 @@ public class Person implements Serializable {
     public enum Sex { F, M };
     private String name;
     private String surname;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern= "yyyy-MM-dd")
     private LocalDate dateOfBirth;
     private String PESEL;
     private Sex sex;
@@ -105,10 +108,10 @@ public class Person implements Serializable {
     public String toString() {
         return getName() + " " + getSurname() + " " + getDateOfBirth() + " " + getPESEL() + " " + getSex();
     }
-    public boolean Equals(Person other) {
-        if (other == null)
+    public boolean equals(Person other) {
+        if (other==null)
             return false;
-        return this.getPESEL() == other.getPESEL();}
+        return this.getPESEL().equals(other.getPESEL());}
 
 
 }

@@ -67,8 +67,8 @@ public class Tourist extends Person implements Serializable, Cloneable, Comparab
                 ", catering='" + catering + '\'' +
                 '}';
     }
-    public Object clone()throws CloneNotSupportedException{
-        return (Tourist)super.clone();
+    public Tourist clone()throws CloneNotSupportedException{
+        return (Tourist) super.clone();
     }
     @Override
     public int compareTo(Tourist other){
