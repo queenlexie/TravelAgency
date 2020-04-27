@@ -48,21 +48,22 @@ public class Main {
         t.saveAsXML("travel.xml");
         //System.out.println(Travel.readFromXML("travel.xml"));
         t.writeAsJSON("travel.json");
-        //System.out.println(Travel.readFromJSON("travel.json"));
-
-        //TODO:
-
-        System.out.println(t.isPersonAtTravel("73020234517"));
+        //System.out.println(t.isPersonAtTravel("82122134567"));
         //System.out.println(t.isPersonAtTravel("73020234513"));
         //System.out.println(t.getTouristList());
         //System.out.println(t.findTouristsForCountry("Japan"));
         //t.deleteTourist(t6);
         //t.endTravel();
+        //t.simpleSerialization();
+        //System.out.println(Travel.simpleDeserialization());
+        //TODO:
+
+        System.out.println(Travel.readFromJSON("travel.json"));
         //System.out.println(t);
         //t.sortByPESEL();
         //t.sort();
 
         //t.writeAsSimpleJSON("travelSimple.json");
-        //System.out.println(Travel.readFromSimpleJSON("travelSimple.json"));
+        //Travel.readFromSimpleJSON("travel.json");
     }
 }
